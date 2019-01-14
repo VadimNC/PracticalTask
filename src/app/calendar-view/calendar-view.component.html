@@ -1,0 +1,21 @@
+<h2>2019</h2>
+<div  class="grid grid-pad">
+<div *ngFor="let itm of cals" class="col-1-4" routerLink="/detail/{{itm.id}}">
+  <h4>{{itm.name}}</h4>
+<app-month-view
+  [_columns]="columns"
+  [_orders]="orders"
+  [_dynamicColumns]="columnTemplate"
+>
+</app-month-view>
+</div>
+</div>
+
+<!--<div  class="grid grid-pad">-->
+  <!--<a *ngFor="let item of cals"  class="col-1-4"-->
+     <!--routerLink="/detail/{{item.id}}">-->
+    <!--<div class="module hero">-->
+      <!--<h4>{{item.name}}</h4>-->
+    <!--</div>-->
+  <!--</a>-->
+<!--</div>-->

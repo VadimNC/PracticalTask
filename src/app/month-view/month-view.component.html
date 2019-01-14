@@ -1,0 +1,30 @@
+<div class="grid grid-pad">
+<table>
+  <thead>
+  <tr>
+    <!--Создаём динамически шапку Таблицы-->
+    <th *ngFor="let col of _columns" style="border: 1px solid black" >{{col.name}}</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <!--Наполняем Таблицу по горизонтали-->
+  <tr *ngFor="let item of _orders">
+    <!--Наполняем Таблицу по вертикали-->
+    <td *ngFor="let cell of _columns" style="border: 1px solid black">
+      <!--если колонки нет - создаём её-->
+      <div *ngIf="item[cell.id]">
+        {{item[cell.id] }}
+      </div>
+      <!--Заполняем динамически созданные столбцы-->
+      <div *ngFor="let kkk of _dynamicColumns">
+        <div *ngIf="cell.name===kkk.name">
+          <ng-template [ngTemplateOutlet]="kkk.template"></ng-template>
+        </div>
+      </div>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
